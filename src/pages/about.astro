@@ -1,0 +1,15 @@
+---
+import Page from "@components/Page.astro";
+import { Markdown } from "astro/components";
+
+let title = "About";
+let description = "About";
+---
+
+<Page {description} {title}>
+  <Markdown>
+    ## About
+
+    This is so cool.
+  </Markdown>
+</Page>

@@ -1,0 +1,37 @@
+---
+import Page from "@components/Page.astro";
+
+interface MarkdownFrontmatter {
+  publishDate: number;
+}
+
+const title = "Example Blog";
+const description = "The perfect starter for your perfect blog.";
+
+let bios = await Astro.fetchContent("./*.md");
+bios = bios.sort(
+  (a, b) =>
+    new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf()
+);
+---
+
+<Page {description} {title}>
+  <section>
+    <h1 class="text-xl">{title}</h1>
+    <p>{description}</p>
+  </section>
+  <section aria-label="Blog post list">
+    {bios.map((p) => (
+      <ul>
+        <li>{p.title}</li>
+        <li>{p.publishDate}</li>
+        <li>{p.description}</li>
+        <li>{p.tribe}</li>
+        <li>{p.name}</li>
+        <li>{p.state}</li>
+        <li>{p.birthYear}</li>
+        <li>{p.deathYear}</li>
+      </ul>
+    ))}
+  </section>
+</Page>

@@ -1,0 +1,15 @@
+---
+// Component Imports
+import Page from "@components/Page.astro";
+
+interface MarkdownFrontmatter {
+  publishDate: number;
+}
+
+const title = "Turtle Island";
+const description = "Neato cool website brahj";
+---
+
+<Page {description} {title}>
+  <h1>Hello, world</h1>
+</Page>

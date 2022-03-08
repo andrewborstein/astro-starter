@@ -1,0 +1,27 @@
+---
+const { title, author, publishDate, heroImage, alt } = Astro.props;
+---
+
+<div>
+  <article>
+    <div>
+      <header>
+        {heroImage && (
+          <img
+            width="720"
+            height="420"
+            loading="lazy"
+            src={heroImage}
+            alt={alt}
+          />
+        )}
+        <p>{publishDate}</p>
+        <p>{author}</p>
+        <p>{title}</p>
+      </header>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </article>
+</div>

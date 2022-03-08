@@ -1,0 +1,13 @@
+---
+import Blog from "@components/Blog.astro";
+import Page from "@components/Page.astro";
+
+const { content } = Astro.props;
+const { title, description, publishDate, author, heroImage, alt } = content;
+---
+
+<Page {description} {title}>
+  <Blog {title} {author} {heroImage} {publishDate} {alt}>
+    <slot />
+  </Blog>
+</Page>
